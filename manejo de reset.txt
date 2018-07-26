@@ -1,0 +1,30 @@
+git pull origin master
+
+singes.js
+vista.js
+
+git add . git commit -m "cambios"
+
+git push origin master
+
+git pull origin master
+
+git reset --hard HEAD
+
+git reset codigo
+
+git checkout codigo
+
+commit 1 color verde
+commit 2 color azul
+commit 3 color Rojo --> actual
+
+git checkout 2
+
+git status
+
+
+
+
+
+
