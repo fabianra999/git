@@ -96,6 +96,7 @@ Branch (Ramas)
 	git checkout -b <nuevonombre> origin/<ramaremota>	Agregar al repositorio local una rama remota con un nombre distinto
 	git branch -r										Puede ver todas las ramas remotas
 	git push origin :<rama>								Elimina rama del repositorio remoto
+	git push origin --delete <idBranch>						Elimina rama del repositorio remoto
 	git branch -d <rama>								Elimina rama del repositorio local
 	git branch -D <rama>								Forzar eliminacion de rama local
 	
