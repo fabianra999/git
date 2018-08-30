@@ -46,9 +46,16 @@ Consignaciones al repositorio local (commit)
 	git commit -m "Mensaje descriptivo" 			Consignar los cambios. Crea una instantánea del escenario y la adiciona a la línea de trabajo.
 													El mensaje debe estar en presente
 	git commit -a -m "Mensaje descriptivo"			"-a" adiciona todos los archivos con cambios. No adiciona archivos que estén fuera del escenario
+	git commit -am "Mensaje descriptivo"			"-a" adiciona todos los archivos con cambios. No adiciona archivos que estén fuera del escenario
 	git commit --amend -m "Mensaje descriptivo"		"amend" es para que git sepa que es una modificación  o arreglo de la última consignación, 
 													se puede especificar un nuevo mensaje en la consignación, Cualquier cosa que esté en el escenario 
 													será adicionada a la consignación anterior.
+													
+	git revert <idCommit>					 Revertiendo un commit
+	git reset --soft <idCommit> 				Deshaciendo  commits deja cambios en stage
+	git reset --mixed <idCommit> 				Deshaciendo  commits deja cambios  en directorios
+	git reset --hard <idCommit> 				Deshaciendo  commits deja cambios  en directorios
+	cat .git/refs/heads/master				ver commit actual
 
 Subir y bajar consignaciones del repositorio central
 ----------------------------------------------------
@@ -60,7 +67,10 @@ Subir y bajar consignaciones del repositorio central
 
 Conexiones con repositorios remotos
 -----------------------------------
-	git remote -v				Verificar todos los remotos registrados, Se pueden tener muchos remotos, generalmente el de pruebas, producción y el de seguridad
+	git remote 				Verificar todos los remotos registrados, Se pueden tener muchos remotos, generalmente el de pruebas, producción y el de seguridad
+	git remote -v				Verificar todos los remotos registrados, lista direccion de recepcion fetch
+	git remote add origin <repositorioRemoto>	Agregar repositorio remoto
+	git remote rm <nombre>		Eliminar un remoto
 	git remote r <nombre>		Eliminar un remoto
 	git remote show origin		Muestra:
 									Ramas remotas
@@ -91,10 +101,15 @@ Branch (Ramas)
 	
 	git checkout <rama>									Cambiar a escenario de otra rama
 	git merge <nombrerama>								Mezcla la rama que se indica en <nombrerama> a la rama donde se esta trabajando
+	git merge --abort								Aborta cambios de la mezcla
 	git checkout -b <nombrerama>						Crea y se cambia a la nueva rama
 	
 	git remote prune origin								Eliminar referencia remota de las ramas eliminadas
+	git diff <master>..<idBranch>							Muestra diferencias de ramas
+	git push -u origin <idRama>				Creando un branch remoto (Cargar al repositorio una rama local)
 
+	
+	
 
 Tags (Etiquetas)
 ----------------
@@ -110,10 +125,12 @@ Comparaciones (diff)
 --------------------
 	git diff							Muestra cambios de la copia de trabajo
 	git diff HEAD						Muestra cambios de la última consignación
+	git diff -w HEAD						Muestra cambios de la última consignación sin nuevos espacios
 	git diff HEAD^						Muestra cambios del padre de la última consignación
 	git diff HEAD^^						Muestra cambios del abuelo de la última consignación
 	git diff HEAD~5						Muestra cambios de 5 consignaciones atras
-	git diff 4fb063f..f5a6ff9			Mostrar diferencias usando los identificadores SHA de dos consignaciones	
+	git diff 4fb063f..f5a6ff9			Mostrar diferencias usando los identificadores SHA de dos consignaciones
+	git diff --stat --summary 4fb063f..HEAD			Mostrar diferencias puntuales
 	git diff master <rama>				Compara dos ramas
 	git blame <archivo> --date short	Para conocer las historia de un cambio que no se entiende
 
@@ -132,7 +149,9 @@ Consultar registro (Historial de consignaciones)
 	git log --since=1.hour.ago							Muestra consignaciones de hace 1 hora
 	git log --since=1.month.ago --until=2.weeks.ago		Muestra consignaciones de hace 1 mes hasta hace 2 semanas
 	git log --since=2000-01-01 --until=2012-12-21		Muestra consignaciones entre dos fechas
-
+	git log --graph						Mostrar lista de consignaciones con grafica
+	git log --oneline --graph --all --decorate		Mostrar lista de consignaciones con grafica decorado en una linea
+	git log show <idCommit>					Examinando el contenido de cada commit
 
 Alias
 -----
@@ -141,6 +160,29 @@ Alias
 	git config --global alias.ci commit					Crea alias ci para commit	
 	git config --global alias.st status					Crea alias st para status
 	git config --global alias.aa 'add --all'			Crea alias aa para add --all (agregar todo)
+	
+Listado de contenido
+-----
+	git ls-tree master					Lista contenido de la Rama
+	git ls-tree master^					Lista contenido de la Rama vercion anterior
+	git ls-tree master^^					Lista contenido de la Rama vercion anterior a la anterior
+	git ls-tree master~2					Lista contenido de la Rama vercion anterior a la anterior
+
+	
+cambios almacenados temporalmente
+-----
+	git stash list								lista de stash
+	git stash show <isStash>						Estadisticas del cambio
+	git stash show -p <isStash>						Estadisticas del cambio similar a git diff
+	git stash save "nameComit"						Almacenando cambios temporalmente
+	git stash save "nameComit"						Almacenando cambios temporalmente
+	git stash pop	<isStash>						aplica cambios y elimina de temporales
+	git stash apply	<isStash>						aplica cambios y no elimina de temporales
+	git stash clear	<isStash>						Elimina de temporales
+
+
+
+
 
 
 
