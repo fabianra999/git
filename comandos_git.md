@@ -114,13 +114,17 @@ Branch (Ramas)
 
 Tags (Etiquetas)
 ----------------
-	git tag								Muestra las etiquetas creadas
+	git tag					Muestra las etiquetas creadas
+	git tag -l 'v1.4.2.*'			Muestra lista de etiquetas
+	git show v1.4				Ver tados de la etiqueta
 	git tag -a <nombre> -m "<mensaje>"	Crear una etiqueta
-	git push --tags						Subir etiquetas a remoto
-	git checkout <nombretag>			Volver a como estaba el código cuando se liberó con una etiqueta especifica
+	git push --tags				Subir etiquetas a remoto
+	git pull --tags				Bajar tags remotos
+	git checkout <nombretag>		Volver a como estaba el código cuando se liberó con una etiqueta especifica
 	git clone -b <tag> <link_git>		Clonar un tag especifico
-	git tag -d <tag>					Eliminar una etiqueta local
+	git tag -d <tag>			Eliminar una etiqueta local
 	git push origin :refs/tags/<tag>	Eliminar una etiqueta remota
+	git push --delete origin <tag>		Eliminar tag Remoto
 
 Comparaciones (diff)
 --------------------
