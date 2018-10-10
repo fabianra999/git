@@ -186,6 +186,12 @@ cambios almacenados temporalmente
 	git stash clear	<isStash>						Elimina de temporales
 
 
+Actualizar y optimizar indices
+-----
+	git gc --aggressive							Actualizar y optimizar indices
+
+
+
 
 
 
