@@ -183,6 +183,8 @@ cambios almacenados temporalmente
 	git stash save "nameComit"						Almacenando cambios temporalmente
 	git stash pop	<isStash>						aplica cambios y elimina de temporales
 	git stash apply	<isStash>						aplica cambios y no elimina de temporales
+	
+	git stash drop <stash_id>						Elimina de temporales
 	git stash clear	<isStash>						Elimina de temporales
 
 
