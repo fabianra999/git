@@ -57,3 +57,5 @@
 ## Congelar cambios
 	*git stash        				 Congelar cambios	
 	*git stash pop          		 Descongelar cambios
+## Eliminar Cambios locales
+	*git reset --hard       				 Eliminar todos los cambios locales	
